@@ -29,14 +29,14 @@ def test_poisson(data, label="Data"):
     expected = len(data) * poisson.pmf(values, lambda_)
     expected *= np.sum(counts) / np.sum(expected)
     chi_stat, p_value = chisquare(f_obs=counts, f_exp=expected)
-    print(f"\n🔹 {label} Poisson Test")
+    print(f"\n{label} Poisson Test")
     print(f"Chi-square Statistic: {chi_stat:.4f}")
     print(f"p-value: {p_value:.4f}")
     print("Likely Poisson Distribution" if p_value > 0.05 else "Not Poisson Distributed")
 
 def test_normality(data, label="Data"):
     stat, p = normaltest(data)
-    print(f"\n🔹 {label} Normality Test")
+    print(f"\n{label} Normality Test")
     print(f"Statistic: {stat:.4f}, p-value: {p:.4f}")
     print("Data is likely normal" if p > 0.05 else " Data is not normal")
 
@@ -57,7 +57,7 @@ for col in cols:
     plot_hist(crypto[col], f"{col} Distribution")
 
 # Skewness Example
-print(f"\n🔹 Active Users Skewness: {skew(active_users):.4f}")
+print(f"\nActive Users Skewness: {skew(active_users):.4f}")
 
 # Correlation Heatmap
 plt.figure(figsize=(8, 6))
